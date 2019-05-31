@@ -4,6 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="dao" class="com.chenss.dao.IndexDaoImpl"></bean>
     <bean id="service" class="com.chenss.dao.IndexService">
-        <property name="dao" ref="dao"></property>
+        <constructor-arg ref="dao"></constructor-arg>
     </bean>
 </beans>
