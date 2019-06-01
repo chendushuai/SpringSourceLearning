@@ -1,10 +1,14 @@
 package com.chenss.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+@Service
+//@Scope("singleton")//默认是单例的
+@Scope("prototype")//默认是单例的
 public class IndexService {
     //也需要描述关系
     /*@Autowired//默认使用byType注入形式
