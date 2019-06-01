@@ -9,5 +9,5 @@
     <!--<context:annotation-config></context:annotation-config>--><!-- 此行可以省略 -->
     <!-- 既开启了注解，也开启了扫描 -->
     <context:component-scan base-package="com"></context:component-scan>
-
+    <bean id="dao" class="com.chenss.dao.IndexDaoImpl"></bean>
 </beans>
