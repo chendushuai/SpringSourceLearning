@@ -4,9 +4,5 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class IndexDaoImpl1 implements IndexDao {
-    @Override
-    public void test() {
-        System.out.println("impl0 ");
-    }
+public class IndexDaoImpl1 {
 }

@@ -7,21 +7,22 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-//@Scope("singleton")//默认是单例的
-@Scope("prototype")//默认是单例的
+@Scope("singleton")//默认是单例的
+//@Scope("prototype")
 public class IndexService {
     //也需要描述关系
-    /*@Autowired//默认使用byType注入形式
-    private IndexDao dao;*/
+    @Autowired//默认使用byType注入形式
+    private IndexDao dao;
 
-    @Resource//默认使用byName进行处理，可能是根据参数名称进行匹配类名
-    private IndexDao indexDaoImpl1;
+    /*@Resource//默认使用byName进行处理，可能是根据参数名称进行匹配类名
+    private IndexDao indexDaoImpl1;*/
 
     public void setDaowessss(IndexDao dao) {
-        this.indexDaoImpl1 = dao;
+        this.dao = dao;
     }
 
     public void service() {
-        indexDaoImpl1.test();
+        dao.test();
+        System.out.println(dao.hashCode());
     }
 }
