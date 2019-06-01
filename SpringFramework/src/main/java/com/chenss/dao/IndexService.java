@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 @Service
 @Scope("singleton")//默认是单例的
 //@Scope("prototype")
-public class IndexService {
+public abstract class IndexService {
     //也需要描述关系
     private IndexDao dao;
 
@@ -22,9 +22,7 @@ public class IndexService {
     }
 
     @Lookup
-    public IndexDao getDao() {
-        return null;
-    }
+    public abstract IndexDao getDao();
 
     public void service() {
         getDao().test();
