@@ -1,5 +1,8 @@
 package com.chenss.dao;
 
+import org.springframework.stereotype.Component;
+
+@Component("dao")
 public class IndexDaoImpl implements IndexDao {
     private String str;
     @Override
