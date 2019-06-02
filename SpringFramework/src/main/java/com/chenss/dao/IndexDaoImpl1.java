@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.PostConstruct;
 
 @Repository
-@Primary
 public class IndexDaoImpl1 implements IndexDao {
     public IndexDaoImpl1() {
         System.out.println("IndexDaoImpl1 init");
