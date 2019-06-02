@@ -35,6 +35,30 @@
             <artifactId>spring-context</artifactId>
             <version>5.1.5.RELEASE</version>
         </dependency>
+        <!-- Spring 数据源 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+        <!--Mybatis ORM-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis </artifactId>
+            <version>3.2.3</version>
+        </dependency>
+        <!--Mybatis Spring 针对Spring设计了相应的bean类，交给容器管理-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <!-- MySql 数据库连接驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.41</version>
+        </dependency>
     </dependencies>
 
     <build>
