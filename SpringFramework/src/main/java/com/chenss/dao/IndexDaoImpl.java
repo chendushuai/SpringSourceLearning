@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository("dao")
 @Scope("prototype")
-public class IndexDaoImpl implements IndexDao, InitializingBean, DisposableBean {
+public class IndexDaoImpl implements IndexDao {
     @Override
     public void test() {
         System.out.println("impl ");
@@ -16,14 +16,7 @@ public class IndexDaoImpl implements IndexDao, InitializingBean, DisposableBean 
     public IndexDaoImpl() {
         System.out.println("Contructor");
     }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("Initialize");
-    }
-
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("destroy");
+    public void init() {
+        System.out.println("init");
     }
 }
