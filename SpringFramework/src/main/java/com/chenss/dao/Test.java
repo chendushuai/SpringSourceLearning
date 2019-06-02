@@ -10,7 +10,5 @@ public class Test {
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Spring.class);
         IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
         indexService.service();
-        IndexService indexService1 = (IndexService) annotationConfigApplicationContext.getBean("indexService");
-        indexService1.service();
     }
 }

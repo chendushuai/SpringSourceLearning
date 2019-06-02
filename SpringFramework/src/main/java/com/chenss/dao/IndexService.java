@@ -25,8 +25,8 @@ public abstract class IndexService {
     public abstract IndexDao getDao();
 
     public void service() {
-        getDao().test();
+        //getDao().test();
         System.out.println("dao == " + getDao().hashCode());
-        System.out.println("service == " + this.hashCode());
+        //System.out.println("service == " + this.hashCode());
     }
 }
