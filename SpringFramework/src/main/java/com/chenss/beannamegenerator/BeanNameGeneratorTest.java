@@ -1,4 +1,4 @@
-package com.chenss.dao;
+package com.chenss.beannamegenerator;
 
 import org.springframework.beans.factory.support.DefaultBeanNameGenerator;
 

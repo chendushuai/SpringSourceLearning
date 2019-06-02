@@ -1,5 +1,6 @@
-package com.chenss.dao;
+package com.chenss.service;
 
+import com.chenss.dao.IndexDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.annotation.Scope;

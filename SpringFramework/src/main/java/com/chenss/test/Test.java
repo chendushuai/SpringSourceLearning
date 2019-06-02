@@ -1,5 +1,7 @@
-package com.chenss.dao;
+package com.chenss.test;
 
+import com.chenss.config.Spring;
+import com.chenss.service.IndexService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

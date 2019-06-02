@@ -1,4 +1,4 @@
-package com.chenss.dao;
+package com.chenss.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
