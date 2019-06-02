@@ -10,9 +10,7 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Repository("dao")
-@Scope("prototype")
-@Lazy
+@Repository
 public class IndexDaoImpl implements IndexDao {
     @Override
     public void test() {
@@ -20,13 +18,5 @@ public class IndexDaoImpl implements IndexDao {
     }
     public IndexDaoImpl() {
         System.out.println("Contructor");
-    }
-    @PostConstruct
-    public void init() {
-        System.out.println("init");
-    }
-    @PreDestroy
-    public void deploy() {
-        System.out.println("deploy");
     }
 }
