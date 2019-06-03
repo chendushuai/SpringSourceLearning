@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 @Service
 public class IndexService {
     //也需要描述关系
-    @Autowired
+    @Autowired(required = false)
     @Qualifier("indexDaoImpl1")
     private IndexDao dao;
 

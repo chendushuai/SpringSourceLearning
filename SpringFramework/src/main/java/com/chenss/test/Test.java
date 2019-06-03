@@ -12,7 +12,7 @@ public class Test {
         //ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
         //IndexService indexService = (IndexService) classPathXmlApplicationContext.getBean("indexService");
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
-        annotationConfigApplicationContext.getEnvironment().setActiveProfiles("dao2");
+            annotationConfigApplicationContext.getEnvironment().setActiveProfiles("dao1");
         annotationConfigApplicationContext.register(Spring.class);
         annotationConfigApplicationContext.refresh();
 
