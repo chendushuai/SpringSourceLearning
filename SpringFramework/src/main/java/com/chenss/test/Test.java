@@ -2,6 +2,7 @@ package com.chenss.test;
 
 import com.chenss.config.Spring;
 import com.chenss.service.IndexService;
+import com.chenss.service.TestIndexService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,5 +13,7 @@ public class Test {
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Spring.class);
         IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
         indexService.service();
+        TestIndexService testIndexService = (TestIndexService) annotationConfigApplicationContext.getBean("testIndexService");
+        System.out.println(testIndexService.getClass().getSimpleName());
     }
 }
