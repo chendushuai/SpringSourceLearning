@@ -59,6 +59,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.41</version>
         </dependency>
+        <!--添加AOP关键 AspectJ支持-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.13</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -96,5 +102,13 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <resources>
+            <resource>
+                <directory>src/main/resource</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 </project>

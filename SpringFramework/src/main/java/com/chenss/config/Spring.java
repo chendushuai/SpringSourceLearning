@@ -28,7 +28,7 @@ public class Spring {
     public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        System.out.println("chenss002");
+        //System.out.println("chenss002");
         return sqlSessionFactoryBean;
     }
 }

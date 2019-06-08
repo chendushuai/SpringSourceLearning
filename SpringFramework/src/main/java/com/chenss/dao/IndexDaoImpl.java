@@ -13,13 +13,12 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Repository
-@Profile("dao1")
 public class IndexDaoImpl implements IndexDao {
     @Override
     public void test() {
         System.out.println("impl ");
     }
     public IndexDaoImpl() {
-        System.out.println("Contructor");
+        //System.out.println("Contructor");
     }
 }
