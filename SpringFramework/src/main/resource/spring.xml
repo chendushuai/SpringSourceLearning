@@ -9,5 +9,6 @@
 
     <!--<context:annotation-config></context:annotation-config>--><!-- 此行可以省略 -->
     <!-- 既开启了注解，也开启了扫描 -->
-    <aop:aspectj-autoproxy />
+    <!-- 启用AspectJ AOP注解 -->
+    <!-- <aop:aspectj-autoproxy /> -->
 </beans>
