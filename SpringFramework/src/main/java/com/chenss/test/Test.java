@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Proxy;
 
 public class Test {
     public static void main(String[] args) {
@@ -21,8 +22,19 @@ public class Test {
         //IndexService indexService = (IndexService) classPathXmlApplicationContext.getBean("indexService");
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Spring.class);
 
-        IndexDaoTest indexDao = annotationConfigApplicationContext.getBean(IndexDaoTest.class);
-        indexDao.test("chenss",29);
+        /*IndexDaoTest indexDao = annotationConfigApplicationContext.getBean(IndexDaoTest.class);
+        indexDao.test("chenss",29);*/
+
+        IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("dao1");
+        System.out.println("indexDao instanceof IndexDaoImpl");
+        System.out.println(indexDao instanceof IndexDaoImpl);
+        System.out.println("indexDao instanceof Proxy");
+        System.out.println(indexDao instanceof Proxy);
+        System.out.println("indexDao instanceof IndexDao");
+        System.out.println(indexDao instanceof IndexDao);
+        System.out.println("---------------------------");
+        indexDao.test();
+        indexDao.test("chenss002");
 
         /*annotationConfigApplicationContext.getEnvironment().setActiveProfiles("dao1");
         annotationConfigApplicationContext.register(Spring.class);

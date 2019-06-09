@@ -17,4 +17,9 @@ public class IndexDaoImpl1 implements IndexDao {
     public void test() {
         System.out.println("IndexDaoImpl1");
     }
+
+    @Override
+    public void test(String args) {
+
+    }
 }
