@@ -25,7 +25,7 @@ public class Test {
         /*IndexDaoTest indexDao = annotationConfigApplicationContext.getBean(IndexDaoTest.class);
         indexDao.test("chenss",29);*/
 
-        IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("dao1");
+        /*IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("dao1");
         System.out.println("indexDao instanceof IndexDaoImpl");
         System.out.println(indexDao instanceof IndexDaoImpl);
         System.out.println("indexDao instanceof Proxy");
@@ -34,7 +34,11 @@ public class Test {
         System.out.println(indexDao instanceof IndexDao);
         System.out.println("---------------------------");
         indexDao.test();
-        indexDao.test("chenss002");
+        indexDao.test("chenss002");*/
+
+        IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("indexDaoTest");
+        System.out.println(indexDao);
+        indexDao.test();
 
         /*annotationConfigApplicationContext.getEnvironment().setActiveProfiles("dao1");
         annotationConfigApplicationContext.register(Spring.class);

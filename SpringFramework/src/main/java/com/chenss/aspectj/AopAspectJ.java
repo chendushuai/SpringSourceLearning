@@ -1,10 +1,10 @@
 package com.chenss.aspectj;
 
+import com.chenss.dao.IndexDao;
+import com.chenss.dao.IndexDaoImpl;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
-
-import java.lang.reflect.Array;
 
 @Component
 @Aspect
@@ -51,6 +51,8 @@ public class AopAspectJ {
     public void pointCut() {
 
     }
+    @DeclareParents(value="com.chenss.dao.*", defaultImpl= IndexDaoImpl.class)
+    public static IndexDao mixin;
     /*@Before("pointCut()")
     public void before() {
         System.out.println("aspectJ before");
