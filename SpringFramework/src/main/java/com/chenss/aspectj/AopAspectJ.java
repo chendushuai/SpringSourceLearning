@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Aspect
+@Aspect("perthis(this(com.chenss.dao.IndexDaoImpl))")
 public class AopAspectJ {
     //@Pointcut("execution(* com.chenss.dao.*.*(..))")//匹配com.chenss.dao包下的所有接口和类的所有方法
     //@Pointcut("execution(public * com.chenss.dao.*.*(..))")//匹配com.chenss.dao包下的所有接口和类的public方法
@@ -51,8 +51,8 @@ public class AopAspectJ {
     public void pointCut() {
 
     }
-    @DeclareParents(value="com.chenss.dao.*", defaultImpl= IndexDaoImpl.class)
-    public static IndexDao mixin;
+    /*@DeclareParents(value="com.chenss.dao.*", defaultImpl= IndexDaoImpl.class)
+    public static IndexDao mixin;*/
     /*@Before("pointCut()")
     public void before() {
         System.out.println("aspectJ before");
