@@ -15,6 +15,7 @@ import javax.annotation.PreDestroy;
 
 @Repository("dao1")
 @Chenss
+@Scope("prototype")
 public class IndexDaoImpl implements IndexDao {
     @Override
     public void test() {

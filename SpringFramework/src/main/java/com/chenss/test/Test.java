@@ -40,10 +40,13 @@ public class Test {
         System.out.println(indexDao);
         indexDao.test();*/
 
-        IndexDaoImpl indexDao1 = (IndexDaoImpl) annotationConfigApplicationContext.getBean("dao1");
-        IndexDaoImpl indexDao2 = (IndexDaoImpl) annotationConfigApplicationContext.getBean("dao1");
+        IndexDao indexDao1 = (IndexDao) annotationConfigApplicationContext.getBean("dao1");
+        IndexDao indexDao2 = (IndexDao) annotationConfigApplicationContext.getBean("dao1");
+
+        System.out.println(indexDao1.hashCode() + " aa " + indexDao2.hashCode());
+
         indexDao1.test();
-        indexDao2.test();
+        indexDao2.test("chenss002SSSSS");
 
         /*annotationConfigApplicationContext.getEnvironment().setActiveProfiles("dao1");
         annotationConfigApplicationContext.register(Spring.class);

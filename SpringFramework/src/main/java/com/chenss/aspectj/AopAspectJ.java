@@ -4,10 +4,12 @@ import com.chenss.dao.IndexDao;
 import com.chenss.dao.IndexDaoImpl;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect("perthis(this(com.chenss.dao.IndexDaoImpl))")
+@Scope("prototype")
 public class AopAspectJ {
     //@Pointcut("execution(* com.chenss.dao.*.*(..))")//匹配com.chenss.dao包下的所有接口和类的所有方法
     //@Pointcut("execution(public * com.chenss.dao.*.*(..))")//匹配com.chenss.dao包下的所有接口和类的public方法
@@ -47,7 +49,9 @@ public class AopAspectJ {
     //@Pointcut("@annotation(com.chenss.anno.Chenss)")//匹配带有com.chenss.anno.Chenss注解的方法
     //@Pointcut("@args(com.chenss.anno.Chenss)")//接受一个参数，并且传递的参数的运行时类型具有@Classified注解
     //@Pointcut("bean(dao1)")//名称为dao1的bean上的任意方法
-    @Pointcut("bean(dao*)")//名称为dao开头的bean上的任意方法
+    //@Pointcut("bean(dao*)")//名称为dao开头的bean上的任意方法
+
+    @Pointcut("execution(* com.chenss.dao.IndexDao*.*(..))")
     public void pointCut() {
 
     }
@@ -65,6 +69,7 @@ public class AopAspectJ {
     @Around("pointCut()")
     public void around(ProceedingJoinPoint pjp) {
         System.out.println("aspectJ around before");
+        System.out.println("aspectJ hashcode " + this.hashCode());
         Object[] objects = pjp.getArgs();
         if (objects!=null && objects.length>0) {
             for (int i = 0; i < objects.length; i++) {
