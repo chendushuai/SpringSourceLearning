@@ -4,6 +4,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Array;
+
 @Component
 @Aspect
 public class AopAspectJ {
@@ -61,8 +63,14 @@ public class AopAspectJ {
     @Around("pointCut()")
     public void around(ProceedingJoinPoint pjp) {
         System.out.println("aspectJ around before");
+        Object[] objects = pjp.getArgs();
+        if (objects!=null && objects.length>0) {
+            for (int i = 0; i < objects.length; i++) {
+                objects[i] += " chenss";
+            }
+        }
         try {
-            pjp.proceed();
+            pjp.proceed(objects);
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
