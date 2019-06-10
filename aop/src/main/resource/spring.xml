@@ -9,17 +9,26 @@
                            http://www.springframework.org/schema/aop/spring-aop.xsd
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 定义开始进行注解扫描 -->
     <context:component-scan base-package="com.chenss"></context:component-scan>
+
+    <!-- 定义AspectJ对象使用的逻辑类，类中提供切面之后执行的逻辑方法 -->
     <bean id="aspectAop" class="com.chenss.aspectj.Aspect"></bean>
+    <bean id="aspectAop2" class="com.chenss.aspectj.Aspect2"></bean>
+
     <bean id="indexDao" class="com.chenss.entity.IndexDao"></bean>
+
+    <!--在Config中定义切面逻辑，允许重复出现，重复多次，以最后出现的逻辑为准，但是次数以出现的次数为准-->
     <aop:config>
+        <!-- aop:aspect ID重复不影响正常运行，依然能够有正确结果 -->
+        <!-- aop:pointcut ID重复会出现覆盖，以最后出现的为准。不同aop:aspect内出现的pointcut配置，可以相互引用 -->
         <aop:aspect id="aspect" ref="aspectAop">
             <aop:pointcut id="aspectCut" expression="execution(* com.chenss.entity.*.*())"/>
             <aop:before method="before" pointcut-ref="aspectCut"></aop:before>
         </aop:aspect>
-        <aop:aspect id="aspectName" ref="aspectAop">
+        <aop:aspect id="aspect" ref="aspectAop2">
             <aop:pointcut id="aspectNameCut" expression="execution(* com.chenss.entity.*.*(java.lang.String, ..))"/>
-            <aop:before method="beforeName" pointcut-ref="aspectNameCut"></aop:before>
+            <aop:before method="before2" pointcut-ref="aspectNameCut"></aop:before>
         </aop:aspect>
     </aop:config>
 </beans>

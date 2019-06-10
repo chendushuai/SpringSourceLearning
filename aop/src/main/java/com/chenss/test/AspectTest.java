@@ -8,6 +8,7 @@ public class AspectTest {
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
         Dao dao = (Dao) classPathXmlApplicationContext.getBean("indexDao");
         dao.query();
+        System.out.println("-----------------------------------");
         dao.query("chenss");
     }
 }
