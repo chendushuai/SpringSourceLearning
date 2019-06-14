@@ -12,4 +12,14 @@ public class UserDaoLog implements UserDao {
         System.out.println("UserDaoLog log");
         userDao.query();
     }
+
+    @Override
+    public void query(String name) {
+
+    }
+
+    @Override
+    public void query(String name, int age) {
+
+    }
 }
