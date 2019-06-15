@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -20,8 +21,8 @@ public class ProxyUtil {
      * new
      * @return
      */
-    public static Object newInstance(Object targetClass) {
-        Class targetInterface = targetClass.getClass().getInterfaces()[0];
+    public static Object newInstance(Class targetInterface, CustomInvocationHandler invocationHandler) {
+//        Class targetInterface = targetClass.getClass().getInterfaces()[0];
         String line = "\n";
         String tab = "\t";
         Object proxy = null;
@@ -30,11 +31,13 @@ public class ProxyUtil {
         String targetPackage = targetInterface.getName();
         String content = "";
         String packageContent = "package com.chenss.proxy;"+line;
-        String importContent = "import " + targetPackage + ";"+line;
+        String importContent = line +"import " + targetPackage + ";"+line;
+        importContent += "import com.chenss.proxy.CustomInvocationHandler;"+line;
+        importContent += "import java.lang.reflect.Method;"+line + line;
         String clazzFirstLineContent = "public class $Proxy implements " + targetClassName + "{"+line;
-        String fieldContent = tab + "private " + targetClassName + " target;"+line;
-        String contructContent = tab + "public $Proxy (" + targetClassName + " target) {"+line;
-        contructContent += tab + tab + "this.target = target;"+line;
+        String fieldContent = tab + "private CustomInvocationHandler h;"+line;
+        String contructContent = tab + "public $Proxy (CustomInvocationHandler h) {"+line;
+        contructContent += tab + tab + "this.h = h;"+line;
         contructContent += tab + "}"+line;
         String methodContent = "";
         for (Method method:
@@ -44,8 +47,10 @@ public class ProxyUtil {
             String methodName = method.getName();
             String argsContent = "";
             String methodArgs = "";
+            String argsClass = "";
             for (int i = 0; i < args.length; i++) {
                 argsContent += args[i].getSimpleName() + " i" + i + ",";
+                argsClass += args[i].getSimpleName() + ".class,";
                 methodArgs += "i" + i + ",";
             }
             if (argsContent.length() > 0) {
@@ -54,14 +59,23 @@ public class ProxyUtil {
             if (methodArgs.length() > 0) {
                 methodArgs = methodArgs.substring(0, methodArgs.length() - 1);
             }
+            if (argsClass.length() > 0) {
+                argsClass = argsClass.substring(0, argsClass.length() - 1);
+            }
             methodContent += tab + "public " + returnTypeName + " " + methodName + "(" + argsContent + ") {"+line;
-            methodContent += tab + tab + "System.out.println(\"打印Log\");" + line;
+//            methodContent += tab + tab + "System.out.println(\"打印Log\");" + line;
+            methodContent += tab + tab + "Method method = null;" + line;
+            methodContent += tab + tab + "try {" + line;
+            methodContent += tab + tab + tab + "method = Class.forName(\""+targetInterface.getName()+"\").getDeclaredMethod(\""+methodName+"\"";
+            methodContent += methodArgs.length()>0 ? ", new Class[]{"+argsClass+"});" + line : ");" + line;
+            methodContent += tab + tab + "} catch (Exception e) {}" + line;
             methodContent += tab + tab;
             if (!returnTypeName.equals("void")) {
-                methodContent += returnTypeName + " result = ";
+                methodContent += returnTypeName + " result = (" + returnTypeName + ") ";
             }
-            methodContent += "target." + methodName + "(" + methodArgs + ");" + line;
-            methodContent += tab + tab + "System.out.println(\"打印Log OVER\");" + line;
+            methodContent += "h.invoke(method";
+            methodContent += methodArgs.length()>0 ? ", new Object[]{"+methodArgs+"});" + line : ",new Object[]{});" + line;
+//            methodContent += tab + tab + "System.out.println(\"打印Log OVER\");" + line;
             if (!returnTypeName.equals("void")) {
                 methodContent += tab + tab + "return result;" + line;
             }
@@ -95,9 +109,10 @@ public class ProxyUtil {
             URL[] urls = new URL[]{new URL("file:E:\\\\")};
             URLClassLoader classLoader = new URLClassLoader(urls);
             Class clazz = classLoader.loadClass("com.chenss.proxy.$Proxy");
-            Constructor constructor = clazz.getConstructor(targetInterface);
+            //return clazz.newInstance();
+            Constructor constructor = clazz.getConstructor(invocationHandler.getClass().getInterfaces()[0]);
 
-            proxy = constructor.newInstance(targetClass);
+            proxy = constructor.newInstance(invocationHandler);
         } catch (Exception e) {
             e.printStackTrace();
         }
