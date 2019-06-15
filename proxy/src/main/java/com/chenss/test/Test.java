@@ -1,5 +1,7 @@
 package com.chenss.test;
 
+import com.chenss.dao.ChenssDao;
+import com.chenss.dao.ChenssDaoImpl;
 import com.chenss.dao.UserDao;
 import com.chenss.dao.UserDaoImpl;
 import com.chenss.proxy.*;
@@ -10,7 +12,10 @@ public class Test {
         UserDao userDaoLog = new UserDaoLog(userDao);
         //UserDaoImpl userDao = new UserDaoLogTimer();
         userDaoLog.query();*/
-        UserDao userDao = (UserDao) ProxyUtil.newInstance(new UserDaoImpl());
-        userDao.query();
+        //自定义代理实现
+        ChenssDao chenssDao = (ChenssDao) ProxyUtil.newInstance(new ChenssDaoImpl());
+        System.out.println("chenssDao.query()   " +chenssDao.query());
+        System.out.println("chenssDao.query(\"chenss002\")   " +chenssDao.query("chenss002"));;
+        chenssDao.query("chenss002", 25);
     }
 }

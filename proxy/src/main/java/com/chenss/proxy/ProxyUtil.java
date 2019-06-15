@@ -56,7 +56,15 @@ public class ProxyUtil {
             }
             methodContent += tab + "public " + returnTypeName + " " + methodName + "(" + argsContent + ") {"+line;
             methodContent += tab + tab + "System.out.println(\"打印Log\");" + line;
-            methodContent += tab + tab + "target." + methodName + "(" + methodArgs + ");" + line;
+            methodContent += tab + tab;
+            if (!returnTypeName.equals("void")) {
+                methodContent += returnTypeName + " result = ";
+            }
+            methodContent += "target." + methodName + "(" + methodArgs + ");" + line;
+            methodContent += tab + tab + "System.out.println(\"打印Log OVER\");" + line;
+            if (!returnTypeName.equals("void")) {
+                methodContent += tab + tab + "return result;" + line;
+            }
             methodContent += tab + "}"+line;
         }
         String clazzLastLineContent = "}";
