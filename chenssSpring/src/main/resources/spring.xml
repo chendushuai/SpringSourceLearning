@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 1. 哪些类需要进行关联
+ 2. 怎么告诉这些类（写bean）
+ 3. 怎么维护依赖关系（setter、constr）
+ 4. 怎么体现setter或constr
+-->
+<beans>
+    <bean id="dao" class="com.chenss.dao.UserDaoImpl"></bean>
+    <bean id="service" class="com.chenss.service.UserServiceImpl">
+        <!-- setter -->
+        <property ref="dao"></property>
+    </bean>
+</beans>
