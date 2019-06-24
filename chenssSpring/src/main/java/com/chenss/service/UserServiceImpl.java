@@ -1,10 +1,11 @@
 package com.chenss.service;
 
+import com.chenss.anno.AutoWiredChenss;
 import com.chenss.dao.TestDao;
 import com.chenss.dao.UserDao;
 
 public class UserServiceImpl implements UserService {
-
+    @AutoWiredChenss
     private UserDao userDao;
 
     private TestDao testDao;
