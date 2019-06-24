@@ -6,13 +6,14 @@
  4. 怎么体现setter或constr
 -->
 <beans default-autowire="byType">
-    <bean id="dao" class="com.chenss.dao.UserDaoImpl1"></bean>
+    <bean id="dao" class="com.chenss.dao.UserDaoImpl"></bean>
+    <bean id="dao1" class="com.chenss.dao.UserDaoImpl1"></bean>
     <bean id="testDao" class="com.chenss.dao.TestDaoImpl">
         <constructor-arg name = "name" value = "chenss002"></constructor-arg>
     </bean>
     <bean id="service" class="com.chenss.service.UserServiceImpl">
         <!-- setter -->
-        <!--<property name="userDao" ref="dao"></property>-->
+        <property name="userDao" ref="dao"></property>
         <constructor-arg name="testDao" ref="testDao"></constructor-arg>
     </bean>
 </beans>

@@ -19,7 +19,8 @@ public class BeanFactory {
     Map<String, Object> objectMap = new HashMap<>();
 
     /**
-     *
+     * 按照顺序进行Xml解析
+     * 然后解析依赖，根据依赖获取Map中的对象，进行注入
      */
     public BeanFactory(String xml) {
         File file = new File(this.getClass().getResource("/").getPath() + "//" + xml);
@@ -89,6 +90,15 @@ public class BeanFactory {
                             if (!autoAutowired) {
                                 continue;
                             }
+
+                            if (beanObject != null) {
+                                field.setAccessible(true);
+                                Object obFieldBean = field.get(beanObject);
+                                if (obFieldBean != null) {
+                                    continue;
+                                }
+                            }
+
                             /**
                              * 由于是使用byType，需要遍历Map中的所有对象，
                              * 判断对象的类型是否同自动注入的类型相同，如果相同，才可以注入
@@ -99,17 +109,17 @@ public class BeanFactory {
                             for (String key : objectMap.keySet()) {
                                 if (objectMap.get(key).getClass().getInterfaces()[0].getName().equals(fieldClazz.getName())) {
                                     count++;
-                                    objectAuto=objectMap.get(key);
+                                    objectAuto = objectMap.get(key);
                                 }
                             }
-                            if (count>1) {
+                            if (count > 1) {
                                 throw new ChenssException("符合条件的对象超过一个");
-                            } else if (count==0) {
+                            } else if (count == 0) {
                                 throw new ChenssException("没找到符合条件注入的对象");
                             }
 
                             field.setAccessible(true);
-                            field.set(beanObject,objectAuto);
+                            field.set(beanObject, objectAuto);
                         }
                     }
                 }
