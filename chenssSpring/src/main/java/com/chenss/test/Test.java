@@ -9,5 +9,7 @@ public class Test {
         /*UserService userService = new UserServiceImpl();
         userService.find();*/
         BeanFactory beanFactory = new BeanFactory("spring.xml");
+        UserService userService = (UserService) beanFactory.getBean("service");
+        userService.find();
     }
 }
