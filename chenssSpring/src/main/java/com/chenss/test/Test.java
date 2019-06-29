@@ -13,6 +13,6 @@ public class Test {
         UserService userService = (UserService) beanFactory.getBean("service");
         userService.find();*/
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
-        annotationConfigApplicationContext.scan("com.chenss.service");
+        annotationConfigApplicationContext.scan("com.chenss");
     }
 }
