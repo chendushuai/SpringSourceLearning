@@ -2,14 +2,13 @@ package com.chenss.test;
 
 import com.chenss.dao.A;
 import org.openjdk.jol.info.ClassLayout;
-import org.openjdk.jol.vm.VM;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.System.out;
 
-public class JOLExample12 {
+public class JOLExample13 {
     static List<A> list = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
@@ -36,7 +35,7 @@ public class JOLExample12 {
             public void run() {
                 for (A a : list) {
                     synchronized (a) {
-                        if (k ==4 || k==19 || k==20 || k==39 || k==40 || k==70) {
+                        if (k==39) {
                             out.println("t2 ing k" + k);
                             out.println(ClassLayout.parseInstance(a).toPrintable());
                         }
@@ -46,5 +45,21 @@ public class JOLExample12 {
             }
         };
         t2.start();
+        t2.join();
+        Thread t3 = new Thread() {
+            int k = 0;
+            public void run() {
+                for (A a : list) {
+                    synchronized (a) {
+                        if (k ==4 || k==19 || k==20 || k==39 || k==40 || k==70) {
+                            out.println("t3 ing k" + k);
+                            out.println(ClassLayout.parseInstance(a).toPrintable());
+                        }
+                    }
+                    k++;
+                }
+            }
+        };
+        t3.start();
     }
 }
