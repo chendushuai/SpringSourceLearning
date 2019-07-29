@@ -17,7 +17,7 @@ public class LockTest {
                 lock.lock();
                 System.out.println("threadA Locked");
                 try {
-                    Thread.sleep(3000 * 60);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -35,7 +35,7 @@ public class LockTest {
                 lock.lock();
                 System.out.println("threadB Locked");
                 try {
-                    Thread.sleep(3000 * 60 * 60);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -44,5 +44,41 @@ public class LockTest {
         });
         threadB.setName("threadB");
         threadB.start();
+
+        Thread.sleep(500);
+
+        Thread threadC = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                lock.lock();
+                System.out.println("threadC Locked");
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                lock.unlock();
+            }
+        });
+        threadC.setName("threadC");
+        threadC.start();
+
+        Thread.sleep(500);
+
+        Thread threadD = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                lock.lock();
+                System.out.println("threadD Locked");
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                lock.unlock();
+            }
+        });
+        threadD.setName("threadD");
+        threadD.start();
     }
 }
