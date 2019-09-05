@@ -6,40 +6,45 @@ import javax.sound.midi.Soundbank;
 
 public class StringToIntegerAtoi {
     public int myAtoi(String str) {
-        str = str.trim();
-        int blSub = 0;
-        String stt = "";
+        int space = 32, add = 43, sub = 45, type = 0;
+        boolean blSub = false;
+        StringBuffer buffer = new StringBuffer();
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == '+' || str.charAt(i) == '-') {
-                if (stt.length()>0) {
-                    break;
-                }
-                if (blSub!=0) {
-                    break;
-                }
-                blSub = str.charAt(i) == '-'?-1 :1;
-            } else if (str.charAt(i) <= '9' && str.charAt(i) >= '0') {
-                if (str.charAt(i) == 48 && stt.length() == 0) {
-                    blSub=blSub==0?1:blSub;
+            int charInt = str.charAt(i);
+            if (charInt == space && type==0) {
+                continue;
+            }else if (charInt==add && type == 0) {
+                type=1;
+            } else if (charInt==sub && type == 0) {
+                type=1;
+                blSub=true;
+            } else if (charInt<=57 && charInt>=48) {
+                type = 2;
+                if (charInt==48&& buffer.length()==0) {
                     continue;
                 }
-                stt += str.charAt(i);
+                buffer.append(str.charAt(i));
             } else {
                 break;
             }
         }
-        if (stt.length() == 0) {
+        String result = buffer.toString();
+        if (result.length() == 0) {
             return 0;
-        } else if (blSub==-1 && stt.length() > 10) {
+        } else if (blSub && result.length()>10) {
             return Integer.MIN_VALUE;
-        } else if (stt.length() > 10) {
+        } else if (buffer.length()>10) {
             return Integer.MAX_VALUE;
         }
         try {
-            int intR = Integer.parseInt(blSub==-1 ? "-" + stt : stt);
+            int intR = Integer.parseInt(blSub?"-"+result:result);
             return intR;
         } catch (Exception ex) {
-            return blSub==-1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            if (blSub) {
+                return Integer.MIN_VALUE;
+            } else {
+                return Integer.MAX_VALUE;
+            }
         }
     }
 
