@@ -1,8 +1,5 @@
 package com.chenss.algorithm;
 
-import com.sun.xml.internal.ws.policy.EffectiveAlternativeSelector;
-
-import javax.sound.midi.Soundbank;
 
 public class StringToIntegerAtoi {
     public int myAtoi(String str) {
