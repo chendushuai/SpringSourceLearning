@@ -50,6 +50,7 @@ import java.util.Arrays;
  * 链接：https://leetcode-cn.com/problems/distance-between-bus-stops
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
+ * 处理方式为两个方向都进行距离合计，然后计算两边长度的比较，得到最短长度
  * @author chenss002
  */
 public class DistanceBetweenBusStops {
@@ -66,25 +67,13 @@ public class DistanceBetweenBusStops {
         int minDis = 0;
         int maxLen = 0;
         for (int i = 0; i < distance.length; i++) {
-            maxLen += distance[i];
-        }
-        int endIndex = destination;
-        if ((destination - start) > distance.length / 2) {
-            for (int i = destination; i < distance.length; i++) {
-                minDis += distance[i];
-            }
-
-            for (int i = 0; i < start; i++) {
-                minDis += distance[i];
-            }
-        } else {
-            for (int i = start; i < destination; i++) {
+            if (i>=start && i<destination) {
+                maxLen += distance[i];
+            } else {
                 minDis += distance[i];
             }
         }
-
-        minDis = maxLen - minDis > minDis ? minDis : maxLen - minDis;
-        return minDis;
+        return maxLen > minDis ? minDis : maxLen;
     }
 
     public static void main(String[] args) {
