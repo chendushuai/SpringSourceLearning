@@ -51,6 +51,8 @@ public class JumpGameii {
                 jump++;
                 jumpLength = maxLength;
                 break;
+            } else {
+                maxJumpLength=jumpLength;
             }
         }
         return jump;
