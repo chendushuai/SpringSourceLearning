@@ -1,6 +1,9 @@
 package com.chenss.algorithm;
 
 
+/**
+ * @author chenss002
+ */
 public class StringToIntegerAtoi {
     public int myAtoi(String str) {
         int space = 32, add = 43, sub = 45, type = 0;

@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>SpringFramework</artifactId>
+    <artifactId>chenssSpring</artifactId>
     <packaging>war</packaging>
 
-    <name>SpringFramework Maven Webapp</name>
+    <name>chenssSpring Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -29,46 +29,20 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-        <!-- ioc 90% -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.1.5.RELEASE</version>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.1.1</version>
         </dependency>
-        <!-- Spring 数据源 -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>5.1.5.RELEASE</version>
-        </dependency>
-        <!--Mybatis ORM-->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis </artifactId>
-            <version>3.2.3</version>
-        </dependency>
-        <!--Mybatis Spring 针对Spring设计了相应的bean类，交给容器管理-->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <!-- MySql 数据库连接驱动 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.41</version>
-        </dependency>
-        <!--添加AOP关键 AspectJ支持-->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.8.13</version>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.9</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>SpringFramework</finalName>
+        <finalName>chenssSpring</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
@@ -102,13 +76,5 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <resources>
-            <resource>
-                <directory>src/main/resource</directory>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-            </resource>
-        </resources>
     </build>
 </project>

@@ -1,7 +1,7 @@
 package com.chenss.algorithm;
 
 /**
- * @author User
+ * @author chenss002
  */
 public class ListNode {
     int val;
