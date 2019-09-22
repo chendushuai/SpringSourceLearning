@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/aop" />
+    <file type="web" url="file://$PROJECT_DIR$/chenssSpring" />
     <file type="web" url="file://$PROJECT_DIR$/proxy" />
     <file type="web" url="file://$PROJECT_DIR$/SpringFramework" />
   </component>
