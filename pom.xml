@@ -12,6 +12,8 @@
       <module>aop</module>
       <module>proxy</module>
       <module>chenssSpring</module>
+      <module>java-nio-server</module>
+      <module>mybatis</module>
   </modules>
   <packaging>pom</packaging>
 

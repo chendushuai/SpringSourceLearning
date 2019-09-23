@@ -43,22 +43,5 @@ public class LengthOfLongestSubstring {
             length ++;
         }
         return length;
-        /*if (null == s || s.length()==0) {
-            return 0;
-        }
-        int maxLenth = 1;
-        Map<Character,Integer> charMap = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            if (charMap.containsKey(s.charAt(i))) {
-                int temp =charMap.get(s.charAt(i));
-                maxLenth = maxLenth<charMap.keySet().size() ? charMap.keySet().size():maxLenth;
-                i=temp;
-                charMap.clear();
-                continue;
-            }
-            charMap.put(s.charAt(i),i);
-        }
-        maxLenth = maxLenth<charMap.keySet().size() ? charMap.keySet().size():maxLenth;
-        return maxLenth;*/
     }
 }

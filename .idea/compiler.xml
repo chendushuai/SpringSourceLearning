@@ -7,10 +7,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="chenssSpring" />
-        <module name="SpringFramework" />
+        <module name="mybatis" />
         <module name="aop" />
         <module name="proxy" />
+        <module name="java-nio-server" />
+        <module name="SpringFramework" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="aop" target="8" />
+      <module name="chenssSpring" target="1.7" />
+      <module name="java-nio-server" target="1.7" />
+      <module name="mybatis" target="1.7" />
+      <module name="proxy" target="1.7" />
+      <module name="SpringFramework" target="1.7" />
+      <module name="SpringSourceLearning" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
