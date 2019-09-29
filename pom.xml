@@ -15,6 +15,7 @@
       <module>java-nio-server</module>
       <module>mybatis</module>
       <module>Redis-Study</module>
+      <module>ReflectClassTest</module>
   </modules>
   <packaging>pom</packaging>
 
