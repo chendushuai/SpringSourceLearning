@@ -42,15 +42,9 @@ public class PalindromeNumber {
         if (x<10) {
             return true;
         }
-        while (x/10>0) {
-            intList.add(x%10);
-            x=(x-x%10)/10;
-        }
-        if (x>0) {
-            intList.add(x);
-        }
-        for (int i = 0; i < intList.size(); i++) {
-            if (!intList.get(i).equals(intList.get(intList.size()-1-i))) {
+        String xStr = Integer.toString(x);
+        for (int i = 0; i < xStr.length(); i++) {
+            if (xStr.charAt(i)!=xStr.charAt(xStr.length()-1-i)) {
                 return false;
             }
         }
