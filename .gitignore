@@ -2,6 +2,9 @@
 out
 *.iml
 aop/target/
-java-nio-server/target/
 chenssSpring/target/
+java-nio-server/target/
+mybatis/target/
+proxy/target/
+Redis-Study/target/
 SpringFramework/target/
