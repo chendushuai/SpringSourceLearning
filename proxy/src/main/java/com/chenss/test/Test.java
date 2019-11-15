@@ -15,15 +15,15 @@ public class Test {
         //UserDaoImpl userDao = new UserDaoLogTimer();
         userDaoLog.query();*/
         //自定义代理实现
-        /*ChenssDao chenssDao = (ChenssDao) ProxyUtil.newInstance(ChenssDao.class, new TestCustomInvocationHandler(new ChenssDaoImpl()));
-        System.out.println("chenssDao.query()   " +chenssDao.query());
-        System.out.println("chenssDao.query(\"chenss002\")   " +chenssDao.query("chenss002"));;
-        chenssDao.query("chenss002", 25);*/
-
-        ChenssDao chenssDao = (ChenssDao) Proxy.newProxyInstance(Test.class.getClassLoader(),new Class[]{ChenssDao.class}, new ChenssInvocationHandler(new ChenssDaoImpl()));
-
+        ChenssDao chenssDao = (ChenssDao) ProxyUtil.newInstance(ChenssDao.class, new TestCustomInvocationHandler(new ChenssDaoImpl()));
         System.out.println("chenssDao.query()   " +chenssDao.query());
         System.out.println("chenssDao.query(\"chenss002\")   " +chenssDao.query("chenss002"));;
         chenssDao.query("chenss002", 25);
+
+        /*ChenssDao chenssDao = (ChenssDao) Proxy.newProxyInstance(Test.class.getClassLoader(),new Class[]{ChenssDao.class}, new ChenssInvocationHandler(new ChenssDaoImpl()));
+
+        System.out.println("chenssDao.query()   " +chenssDao.query());
+        System.out.println("chenssDao.query(\"chenss002\")   " +chenssDao.query("chenss002"));;
+        chenssDao.query("chenss002", 25);*/
     }
 }

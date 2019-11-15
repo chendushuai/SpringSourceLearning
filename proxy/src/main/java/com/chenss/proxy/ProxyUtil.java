@@ -37,9 +37,9 @@ public class ProxyUtil {
         importContent += "import java.lang.reflect.Method;" + line + line;
         String clazzFirstLineContent = "public class $Proxy implements " + targetClassName + "{" + line;
         String fieldContent = tab + "private CustomInvocationHandler h;" + line;
-        String contructContent = tab + "public $Proxy (CustomInvocationHandler h) {" + line;
-        contructContent += tab + tab + "this.h = h;" + line;
-        contructContent += tab + "}" + line;
+        String constructContent = tab + "public $Proxy (CustomInvocationHandler h) {" + line;
+        constructContent += tab + tab + "this.h = h;" + line;
+        constructContent += tab + "}" + line;
         String methodContent = "";
         for (Method method :
                 methods) {
@@ -84,7 +84,7 @@ public class ProxyUtil {
         }
         String clazzLastLineContent = "}";
 
-        content = packageContent + importContent + clazzFirstLineContent + fieldContent + contructContent + methodContent + clazzLastLineContent;
+        content = packageContent + importContent + clazzFirstLineContent + fieldContent + constructContent + methodContent + clazzLastLineContent;
 
         try {
             File file = new File("E:\\com\\chenss\\proxy\\$Proxy.java");
