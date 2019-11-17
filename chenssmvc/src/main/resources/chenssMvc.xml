@@ -1,0 +1,4 @@
+<beans>
+    <compentScan package="com.chenss"></compentScan>
+    <view prefix="/pages/" suffix=".html"></view>
+</beans>
