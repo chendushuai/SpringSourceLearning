@@ -17,17 +17,31 @@
         <module name="SpringFramework" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="aop" target="8" />
-      <module name="chenssmvc" target="8" />
-      <module name="chenssSpring" target="1.7" />
-      <module name="java-nio-server" target="1.7" />
-      <module name="mybatis" target="1.7" />
-      <module name="proxy" target="1.7" />
-      <module name="ReflectClassTest" target="1.7" />
-      <module name="SpringFramework" target="8" />
-      <module name="springMvclearning" target="1.7" />
-      <module name="SpringSourceLearning" target="1.7" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="aop" target="1.8" />
+      <module name="chenssmvc" target="1.8" />
+      <module name="chenssSpring" target="1.8" />
+      <module name="java-nio-server" target="1.8" />
+      <module name="mybatis" target="1.8" />
+      <module name="proxy" target="1.8" />
+      <module name="ReflectClassTest" target="1.8" />
+      <module name="SpringFramework" target="1.8" />
+      <module name="springMvclearning" target="1.8" />
+      <module name="SpringSourceLearning" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ReflectClassTest" options="" />
+      <module name="SpringFramework" options="" />
+      <module name="aop" options="" />
+      <module name="chenssSpring" options="" />
+      <module name="chenssmvc" options="-parameters" />
+      <module name="java-nio-server" options="" />
+      <module name="mybatis" options="" />
+      <module name="proxy" options="" />
+      <module name="springMvclearning" options="" />
+    </option>
   </component>
 </project>

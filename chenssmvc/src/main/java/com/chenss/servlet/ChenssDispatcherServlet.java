@@ -105,8 +105,8 @@ public class ChenssDispatcherServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         /*super.doPost(req, resp);*/
-        StringBuffer requestURL = req.getRequestURL();
-        Method method = urlMethodMap.get(requestURL);
+        String requestURI = req.getRequestURI();
+        Method method = urlMethodMap.get(requestURI);
         if (method != null) {
             Parameter[] parameters = method.getParameters();
             for (int i = 0; i < parameters.length; i++) {
