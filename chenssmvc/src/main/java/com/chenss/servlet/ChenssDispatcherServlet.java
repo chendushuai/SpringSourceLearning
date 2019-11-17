@@ -17,6 +17,7 @@ import javax.xml.parsers.SAXParser;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,8 +46,9 @@ public class ChenssDispatcherServlet extends HttpServlet {
         Element compentScan = rootElement.element(COMPENT_SCAN_ELEMENT_NAME);
         String classPath = compentScan.attribute(COMPENT_SCAN_ELEMENT_ATTRIBUTE_PACKAGE_NAME).getValue();
 
-        File packageFile = new File(projectPath + "\\" + classPath.replaceAll(".", "\\"));
-        scan(file);
+        String filePath = projectPath + classPath.replaceAll("\\.", "/");
+        File packageFile = new File(filePath);
+        scan(packageFile);
         //super.init(config);
     }
 
@@ -58,7 +60,8 @@ public class ChenssDispatcherServlet extends HttpServlet {
         } else {
             String filePath = file.getPath();
             if (filePath.substring(filePath.lastIndexOf(".")).equals(".class")) {
-                String classPath = filePath.replaceAll(projectPath, "").replaceAll("\\\\", ".");
+                String projDirPath = new File(projectPath).getPath();
+                String classPath = filePath.replace(projDirPath+"\\", "").replaceAll("\\\\", ".");
                 String className = classPath.substring(0, classPath.lastIndexOf("."));
                 try {
                     Class<?> scanClass = Class.forName(className);
@@ -105,7 +108,10 @@ public class ChenssDispatcherServlet extends HttpServlet {
         StringBuffer requestURL = req.getRequestURL();
         Method method = urlMethodMap.get(requestURL);
         if (method != null) {
-
+            Parameter[] parameters = method.getParameters();
+            for (int i = 0; i < parameters.length; i++) {
+                System.out.println(parameters[i].getName());
+            }
         }
     }
 }
