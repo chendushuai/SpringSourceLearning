@@ -2,6 +2,8 @@ package com.chenss.servlet;
 
 import com.chenss.annotation.Controller;
 import com.chenss.annotation.RequestMapping;
+import com.chenss.annotation.ResponseBody;
+import com.chenss.dao.UserInfoParam;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.SAXParser;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.HashMap;
@@ -45,6 +48,10 @@ public class ChenssDispatcherServlet extends HttpServlet {
         Element rootElement = document.getRootElement();
         Element compentScan = rootElement.element(COMPENT_SCAN_ELEMENT_NAME);
         String classPath = compentScan.attribute(COMPENT_SCAN_ELEMENT_ATTRIBUTE_PACKAGE_NAME).getValue();
+
+        Element viewElement = rootElement.element("view");
+        prefix=viewElement.attribute("prefix").getValue();
+        suffix=viewElement.attribute("suffix").getValue();
 
         String filePath = projectPath + classPath.replaceAll("\\.", "/");
         File packageFile = new File(filePath);
@@ -109,9 +116,50 @@ public class ChenssDispatcherServlet extends HttpServlet {
         Method method = urlMethodMap.get(requestURI);
         if (method != null) {
             Parameter[] parameters = method.getParameters();
+            Object[] args = new Object[parameters.length];
             for (int i = 0; i < parameters.length; i++) {
-                System.out.println(parameters[i].getName());
+                Parameter parameter = parameters[i];
+                String name = parameter.getName();
+                Class<?> type = parameter.getType();
+                if (type.equals(String.class)) {
+                    args[i]=req.getParameter(name);
+                } else if (type.equals(HttpServletRequest.class)) {
+                    args[i]=req;
+                } else if (type.equals(HttpServletResponse.class)) {
+                    args[i] = resp;
+                } else {
+                    try {
+                        UserInfoParam userInfo = (UserInfoParam) type.newInstance();
+                        for (Field declaredField : type.getDeclaredFields()) {
+                            declaredField.setAccessible(true);
+                            String fieldName = declaredField.getName();
+                            declaredField.set(userInfo,req.getParameter(fieldName));
+                        }
+                        args[i]=userInfo;
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+
+                }
             }
+            try {
+                Object o = method.getDeclaringClass().newInstance();
+                Object invokeValue = method.invoke(o, args);
+                if (!method.getReturnType().equals(Void.class)) {
+                    ResponseBody responseBody = method.getAnnotation(ResponseBody.class);
+                    if (responseBody != null) {
+                        resp.getWriter().write(String.valueOf(invokeValue));
+                    } else {
+                        req.getRequestDispatcher(prefix + String.valueOf(invokeValue) + suffix).forward(req,resp);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            resp.setStatus(404);
         }
     }
 }

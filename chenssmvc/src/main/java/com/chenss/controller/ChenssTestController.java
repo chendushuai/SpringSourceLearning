@@ -21,7 +21,7 @@ public class ChenssTestController {
         System.out.println(String.format("HttpServletRequest:%s", httpRequest));
         System.out.println(String.format("HttpServletResponse:%s", httpResponse));
         System.out.println(String.format("userInfoParam:%s", userInfoParam));
-        return "test";
+        return userInfoParam;
     }
 
     @RequestMapping("/model.do")

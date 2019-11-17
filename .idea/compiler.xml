@@ -6,26 +6,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springMvclearning" />
         <module name="chenssSpring" />
         <module name="mybatis" />
         <module name="chenssmvc" />
-        <module name="aop" />
+        <module name="springMvclearning" />
         <module name="proxy" />
+        <module name="SpringFramework" />
         <module name="java-nio-server" />
         <module name="ReflectClassTest" />
-        <module name="SpringFramework" />
+        <module name="aop" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="aop" target="1.8" />
+      <module name="aop" target="8" />
       <module name="chenssmvc" target="1.8" />
       <module name="chenssSpring" target="1.8" />
       <module name="java-nio-server" target="1.8" />
       <module name="mybatis" target="1.8" />
       <module name="proxy" target="1.8" />
       <module name="ReflectClassTest" target="1.8" />
-      <module name="SpringFramework" target="1.8" />
+      <module name="SpringFramework" target="8" />
       <module name="springMvclearning" target="1.8" />
       <module name="SpringSourceLearning" target="1.8" />
     </bytecodeTargetLevel>
