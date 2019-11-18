@@ -15,6 +15,7 @@
         <module name="aop" />
         <module name="springMvclearning" />
         <module name="proxy" />
+        <module name="logStudy" />
         <module name="java-nio-server" />
         <module name="Redis-Study" />
         <module name="ReflectClassTest" />
@@ -27,6 +28,7 @@
       <module name="dubbo266demo" target="1.8" />
       <module name="dubbostudy" target="1.7" />
       <module name="java-nio-server" target="1.8" />
+      <module name="logStudy" target="1.8" />
       <module name="mybatis" target="1.8" />
       <module name="proxy" target="1.8" />
       <module name="Redis-Study" target="1.8" />

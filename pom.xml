@@ -20,6 +20,7 @@
       <module>chenssmvc</module>
     <module>dubbo-study</module>
       <module>dubbo2.6.6demo</module>
+      <module>logStudy</module>
   </modules>
   <packaging>pom</packaging>
 
