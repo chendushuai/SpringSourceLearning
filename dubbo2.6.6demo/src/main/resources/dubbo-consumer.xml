@@ -10,5 +10,5 @@
 
     <!--<bean id="helloService" class="com.chenss.provider.HelloServiceImpl"></bean>-->
 
-    <dubbo:service interface="com.chenss.api.HelloService" class="com.chenss.provider.HelloServiceImpl"></dubbo:service>
+    <dubbo:reference interface="com.chenss.api.HelloService" id="helloService"></dubbo:reference>
 </beans>
