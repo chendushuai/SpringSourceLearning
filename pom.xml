@@ -18,6 +18,8 @@
       <module>ReflectClassTest</module>
     <module>springMvclearning</module>
       <module>chenssmvc</module>
+    <module>dubbo-study</module>
+      <module>dubbo2.6.6demo</module>
   </modules>
   <packaging>pom</packaging>
 

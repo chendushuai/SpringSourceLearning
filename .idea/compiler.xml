@@ -6,28 +6,39 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springMvclearning" />
+        <module name="dubbostudy" />
         <module name="chenssSpring" />
         <module name="mybatis" />
-        <module name="Redis-Study" />
+        <module name="chenssmvc" />
+        <module name="SpringFramework" />
+        <module name="dubbo266demo" />
         <module name="aop" />
+        <module name="springMvclearning" />
         <module name="proxy" />
         <module name="java-nio-server" />
+        <module name="Redis-Study" />
         <module name="ReflectClassTest" />
-        <module name="SpringFramework" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aop" target="8" />
-      <module name="chenssSpring" target="1.7" />
-      <module name="java-nio-server" target="1.7" />
-      <module name="mybatis" target="1.7" />
-      <module name="proxy" target="1.7" />
-      <module name="Redis-Study" target="1.7" />
-      <module name="ReflectClassTest" target="1.7" />
+      <module name="chenssmvc" target="1.8" />
+      <module name="chenssSpring" target="1.8" />
+      <module name="dubbo266demo" target="1.8" />
+      <module name="dubbostudy" target="1.7" />
+      <module name="java-nio-server" target="1.8" />
+      <module name="mybatis" target="1.8" />
+      <module name="proxy" target="1.8" />
+      <module name="Redis-Study" target="1.8" />
+      <module name="ReflectClassTest" target="1.8" />
       <module name="SpringFramework" target="8" />
-      <module name="springMvclearning" target="1.7" />
-      <module name="SpringSourceLearning" target="1.7" />
+      <module name="springMvclearning" target="1.8" />
+      <module name="SpringSourceLearning" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="chenssmvc" options="-parameters" />
+    </option>
   </component>
 </project>
