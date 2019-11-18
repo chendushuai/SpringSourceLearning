@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springMvclearning" />
+        <module name="chenssSpring" />
+        <module name="mybatis" />
+        <module name="Redis-Study" />
+        <module name="aop" />
+        <module name="proxy" />
+        <module name="java-nio-server" />
+        <module name="ReflectClassTest" />
+        <module name="SpringFramework" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="aop" target="8" />
+      <module name="chenssSpring" target="1.7" />
+      <module name="java-nio-server" target="1.7" />
+      <module name="mybatis" target="1.7" />
+      <module name="proxy" target="1.7" />
+      <module name="Redis-Study" target="1.7" />
+      <module name="ReflectClassTest" target="1.7" />
+      <module name="SpringFramework" target="8" />
+      <module name="springMvclearning" target="1.7" />
+      <module name="SpringSourceLearning" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

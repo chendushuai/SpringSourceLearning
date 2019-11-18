@@ -28,6 +28,7 @@ public class BioServer {
                     serverSocket.close();
                 } catch (IOException e) {
                     e.printStackTrace();
+
                 }
             }
         }
