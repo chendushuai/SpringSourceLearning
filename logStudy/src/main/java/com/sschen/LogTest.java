@@ -15,7 +15,7 @@ public class LogTest {
         logger.trace("trace log");
         logger.debug("debug log");
         logger.warn("warn log");
-        logger.error("error log");
+        logger.error("error log",new Exception("测试异常内容"));
 
         // 打印 Logback 内部状态
         LoggerContext loggerContext = (LoggerContext)LoggerFactory.getILoggerFactory();

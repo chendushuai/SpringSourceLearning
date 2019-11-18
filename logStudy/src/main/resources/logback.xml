@@ -1,7 +1,16 @@
 <!--如果设置debug="true"，则会主动打印状态信息-->
 <!--<configuration debug="true">-->
 
+<!--
+通过指定scan="true"参数，来实现配置文件热加载，并通过指定scanPeriod来说明扫描间隔时间
+注意扫描间隔要加上单位，可用的单位是 milliseconds，seconds，minutes 和 hours。如果只指定了数字，但没有指定单位，这默认单位为 milliseconds。
+-->
+<!--<configuration scan="true" scanPeriod="30 seconds" >-->
+
 <configuration>
+    <property name="USER_LOG_DIR" value="D:/Java/log"></property>
+
+    <!--指定一个listener-->
     <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"></statusListener>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -9,7 +18,15 @@
         </encoder>
     </appender>
 
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${USER_LOG_DIR}/logStudy.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <root level="debug">
+        <appender-ref ref="FILE"></appender-ref>
         <appender-ref ref="STDOUT"></appender-ref>
     </root>
 </configuration>
