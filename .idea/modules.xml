@@ -17,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/logStudy/logStudy.iml" filepath="$PROJECT_DIR$/logStudy/logStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis/mybatis.iml" filepath="$PROJECT_DIR$/mybatis/mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/proxy/proxy.iml" filepath="$PROJECT_DIR$/proxy/proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo.iml" filepath="$PROJECT_DIR$/spring-boot-demo/spring-boot-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springMvclearning/springMvclearning.iml" filepath="$PROJECT_DIR$/springMvclearning/springMvclearning.iml" />
     </modules>
   </component>

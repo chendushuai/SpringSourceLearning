@@ -3,24 +3,35 @@
 
 # 语法：键值对  值前面有空格
 
-name: "chenss"
-age: 30
+# name: "chenss"
+# age: 30
 
-man:
-  name: "dd"
-  age: 28
+# man:
+#   name: "dd"
+#   age: 28
 
-user: {name: "good", age: 22}
+# user: {name: "good", age: 22}
 
-users: [{name: "hello", age: 22},{name: "world", age: 22}]
+# users: [{name: "hello", age: 22},{name: "world", age: 22}]
 
-dogs:
-  - {name: "he", age: 5}
-  - {name: "yy", age: 7}
+# dogs:
+#   - {name: "he", age: 5}
+#   - {name: "yy", age: 7}
 
 # 假名字就是个Map，不加名字就是一个List
 
-animals:
-  - cat
-  - dog
-  - pig
+# animals:
+#   - cat
+#   - dog
+#   - pig
+
+# birthday: 2019-12-5 20:47:40
+
+# spring:
+#   jackson:
+#     date-format: yyyy-MM-dd HH24:mi:ss
+
+student:
+  name: 上学啦
+  age: 15
+  sex: 男

@@ -21,8 +21,15 @@
         <module>dubbo-study</module>
         <module>dubbo2.6.6demo</module>
         <module>logStudy</module>
+        <module>spring-boot-demo</module>
     </modules>
     <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+    </parent>
 
     <name>SpringSourceLearning Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
@@ -38,7 +45,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

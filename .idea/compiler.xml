@@ -7,18 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="chenssmvc" />
-        <module name="aop" />
+        <module name="dubbo-study" />
+        <module name="spring-boot-demo" />
         <module name="springMvclearning" />
         <module name="logStudy" />
         <module name="SpringFramework" />
         <module name="dubbo266demo" />
+        <module name="aop" />
         <module name="mybatis" />
         <module name="ReflectClassTest" />
         <module name="proxy" />
         <module name="java-nio-server" />
         <module name="chenssSpring" />
         <module name="dubbostudy" />
-        <module name="dubbo-study" />
         <module name="dubbo2.6.6demo" />
         <module name="Redis-Study" />
       </profile>
@@ -37,6 +38,7 @@
       <module name="proxy" target="1.8" />
       <module name="Redis-Study" target="1.8" />
       <module name="ReflectClassTest" target="1.8" />
+      <module name="spring-boot-demo" target="1.8" />
       <module name="SpringFramework" target="8" />
       <module name="springMvclearning" target="1.8" />
       <module name="SpringSourceLearning" target="1.8" />
@@ -44,7 +46,18 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ReflectClassTest" options="-parameters" />
+      <module name="SpringFramework" options="-parameters" />
+      <module name="aop" options="-parameters" />
+      <module name="chenssSpring" options="-parameters" />
       <module name="chenssmvc" options="-parameters" />
+      <module name="dubbo266demo" options="-parameters" />
+      <module name="dubbostudy" options="-parameters" />
+      <module name="logStudy" options="-parameters" />
+      <module name="mybatis" options="-parameters" />
+      <module name="proxy" options="-parameters" />
+      <module name="spring-boot-demo" options="-parameters" />
+      <module name="springMvclearning" options="-parameters" />
     </option>
   </component>
 </project>
