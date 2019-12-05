@@ -19,10 +19,28 @@ public class PropertiesTest {
     @Value("${age}")
     int age;
 
+    @Value("#{1+2}")
+    int simpleAdd;
+
+    @Value("#{${numA}+${numB}}")
+    int propertiesAdd;
+
+    @Value("#{${booleanA}?${name}:'其他'}")
+    String booleanA;
+
+    @Value("#{T(Math).random()}")
+    double randomDouble;
+
     @Test
     public void readTest(){
         System.out.println(student);
 
         System.out.println("name= " + name + "   age:   " + age);
+
+        System.out.println("simpleAdd= " + simpleAdd + "   propertiesAdd:   " + propertiesAdd);
+
+        System.out.println("booleanA     " + booleanA);
+
+        System.out.println("randomDouble     " + randomDouble);
     }
 }

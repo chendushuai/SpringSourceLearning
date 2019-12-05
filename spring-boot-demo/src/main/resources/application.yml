@@ -6,6 +6,11 @@
 name: chenss
 age: 30
 
+numA: 4
+numB: 5
+
+booleanA: false
+
 # man:
 #   name: "dd"
 #   age: 28
