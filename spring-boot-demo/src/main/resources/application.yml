@@ -3,8 +3,8 @@
 
 # 语法：键值对  值前面有空格
 
-# name: "chenss"
-# age: 30
+name: chenss
+age: 30
 
 # man:
 #   name: "dd"
