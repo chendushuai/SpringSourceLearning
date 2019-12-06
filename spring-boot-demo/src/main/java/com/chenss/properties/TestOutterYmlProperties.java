@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @PropertySource("classpath:outter.yml")
+@ConfigurationProperties
 public class TestOutterYmlProperties {
-    @Value("${name}")
+    // @Value("${name}")
     private String name;
 
     public String getName() {
