@@ -1,6 +1,8 @@
 package com.chenss.test;
 
 import com.chenss.properties.Student;
+import com.chenss.properties.Teacher;
+import com.chenss.properties.TestOutterYmlProperties;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,12 @@ public class PropertiesTest {
     @Value("#{T(Math).random()}")
     double randomDouble;
 
+    @Autowired
+    Teacher teacher;
+
+    @Autowired
+    TestOutterYmlProperties testOutterYmlProperties;
+
     @Test
     public void readTest(){
         System.out.println(student);
@@ -42,5 +50,9 @@ public class PropertiesTest {
         System.out.println("booleanA     " + booleanA);
 
         System.out.println("randomDouble     " + randomDouble);
+
+        System.out.println(teacher);
+
+        System.out.println(testOutterYmlProperties + "   " + testOutterYmlProperties.getName());
     }
 }

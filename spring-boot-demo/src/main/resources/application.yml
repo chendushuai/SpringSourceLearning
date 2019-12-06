@@ -41,3 +41,9 @@ student:
   age: 15
   sex: 男
   email: chendushuai@126.com
+
+teacher:
+  name: 沈老师
+  students: [
+  {name: "hello", age: 22,sex: 男,email: chendushuai@126.com},
+  {name: "world", age: 22,sex: 女,email: 123@126.com}]
