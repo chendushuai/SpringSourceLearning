@@ -15,12 +15,12 @@ public class ListenerManager {
      * @param applicationListener
      */
     public static void addListener(ApplicationListener applicationListener) {
-        ListenerManager.addListener(applicationListener);
+        listenerList.add(applicationListener);
     }
 
     public static void publishEvent(ApplicationEvent event) {
         for (ApplicationListener applicationListener : listenerList) {
-            Class tClass = (Class)((ParameterizedType)applicationListener.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+            Class tClass = (Class)((ParameterizedType)applicationListener.getClass().getGenericInterfaces()[0]).getActualTypeArguments()[0];
             if (event.getClass().isAssignableFrom(tClass)) {
                 applicationListener.onEvent(event);
             }

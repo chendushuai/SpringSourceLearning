@@ -1,5 +1,8 @@
 package com.chenss.util;
 
+import com.chenss.event.FileUploadEvent;
+import com.chenss.event.ListenerManager;
+
 import java.io.*;
 
 public class FileUtils {
@@ -37,9 +40,7 @@ public class FileUtils {
                     readSize += STANDARD_BYTE_SIZE;
                 }
 
-                if (fileListener != null) {
-                    fileListener.updateLoad(fileSize,readSize);
-                }
+                ListenerManager.publishEvent(new FileUploadEvent(fileSize,readSize));
             }
         } catch (IOException e) {
             e.printStackTrace();
