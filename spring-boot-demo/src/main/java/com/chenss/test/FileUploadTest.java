@@ -1,5 +1,6 @@
 package com.chenss.test;
 
+import com.chenss.util.FileListener;
 import com.chenss.util.FileUtils;
 
 import java.io.File;
@@ -14,6 +15,12 @@ public class FileUploadTest {
         if (!fileOut.exists()) {
             fileOut.createNewFile();
         }
-        FileUtils.fileUploadWrite(new FileInputStream(fileIn),new FileOutputStream(fileOut));
+        FileUtils.fileUploadWrite(new FileInputStream(fileIn), new FileOutputStream(fileOut), new FileListener() {
+            @Override
+            public void updateLoad(int fileSize, int readSize) {
+                double percent = readSize / (double)fileSize;
+                System.out.println(String.format("当前文件上传百分比：{%s}",percent));
+            }
+        });
     }
 }
