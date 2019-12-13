@@ -1,5 +1,6 @@
 package com.chenss.config;
 
+import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,10 +10,17 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class ApplicationConfig {
-    @Bean
+    /*@Bean
     public TomcatServletWebServerFactory servletWebServerFactory() {
         TomcatServletWebServerFactory tomcatServletWebServerFactory = new TomcatServletWebServerFactory();
         tomcatServletWebServerFactory.setPort(8091);
         return tomcatServletWebServerFactory;
+    }*/
+
+    @Bean
+    public JettyServletWebServerFactory jettyServletWebServerFactory() {
+        JettyServletWebServerFactory jettyServletWebServerFactory = new JettyServletWebServerFactory();
+        jettyServletWebServerFactory.setPort(8091);
+        return jettyServletWebServerFactory;
     }
 }
