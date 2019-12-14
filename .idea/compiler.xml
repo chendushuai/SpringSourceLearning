@@ -7,20 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="chenssmvc" />
-        <module name="dubbo-study" />
         <module name="spring-boot-demo" />
         <module name="springMvclearning" />
         <module name="logStudy" />
         <module name="SpringFramework" />
-        <module name="dubbo266demo" />
         <module name="aop" />
         <module name="mybatis" />
         <module name="ReflectClassTest" />
         <module name="proxy" />
         <module name="java-nio-server" />
         <module name="chenssSpring" />
-        <module name="dubbostudy" />
-        <module name="dubbo2.6.6demo" />
         <module name="Redis-Study" />
       </profile>
     </annotationProcessing>
@@ -51,6 +47,8 @@
       <module name="aop" options="-parameters" />
       <module name="chenssSpring" options="-parameters" />
       <module name="chenssmvc" options="-parameters" />
+      <module name="dubbo-study" options="-parameters" />
+      <module name="dubbo2.6.6demo" options="-parameters" />
       <module name="dubbo266demo" options="-parameters" />
       <module name="dubbostudy" options="-parameters" />
       <module name="logStudy" options="-parameters" />

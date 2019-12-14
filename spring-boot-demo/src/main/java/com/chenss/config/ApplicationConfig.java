@@ -10,17 +10,17 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class ApplicationConfig {
-    /*@Bean
+    @Bean
     public TomcatServletWebServerFactory servletWebServerFactory() {
         TomcatServletWebServerFactory tomcatServletWebServerFactory = new TomcatServletWebServerFactory();
         tomcatServletWebServerFactory.setPort(8091);
         return tomcatServletWebServerFactory;
-    }*/
+    }
 
-    @Bean
+    /*@Bean
     public JettyServletWebServerFactory jettyServletWebServerFactory() {
         JettyServletWebServerFactory jettyServletWebServerFactory = new JettyServletWebServerFactory();
         jettyServletWebServerFactory.setPort(8091);
         return jettyServletWebServerFactory;
-    }
+    }*/
 }

@@ -9,10 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/aop/aop.iml" filepath="$PROJECT_DIR$/aop/aop.iml" />
       <module fileurl="file://$PROJECT_DIR$/chenssSpring/chenssSpring.iml" filepath="$PROJECT_DIR$/chenssSpring/chenssSpring.iml" />
       <module fileurl="file://$PROJECT_DIR$/chenssmvc/chenssmvc.iml" filepath="$PROJECT_DIR$/chenssmvc/chenssmvc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dubbo-study/dubbo-study.iml" filepath="$PROJECT_DIR$/dubbo-study/dubbo-study.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dubbo2.6.6demo/dubbo2.6.6demo.iml" filepath="$PROJECT_DIR$/dubbo2.6.6demo/dubbo2.6.6demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dubbo2.6.6demo/dubbo266demo.iml" filepath="$PROJECT_DIR$/dubbo2.6.6demo/dubbo266demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dubbo-study/dubbostudy.iml" filepath="$PROJECT_DIR$/dubbo-study/dubbostudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-nio-server/java-nio-server.iml" filepath="$PROJECT_DIR$/java-nio-server/java-nio-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/logStudy/logStudy.iml" filepath="$PROJECT_DIR$/logStudy/logStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis/mybatis.iml" filepath="$PROJECT_DIR$/mybatis/mybatis.iml" />
