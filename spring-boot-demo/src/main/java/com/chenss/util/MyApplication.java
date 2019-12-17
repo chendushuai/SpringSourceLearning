@@ -42,5 +42,8 @@ public class MyApplication {
         FileAlterationMonitor monitor = new FileAlterationMonitor(500);
         monitor.addObserver(observer);
         monitor.start();
+
+        // 要实现文件监听，就可以写一个县城，定义监听某一路径下的所有的文件，
+        // 如果文件发生改变，则调用监听器
     }
 }
