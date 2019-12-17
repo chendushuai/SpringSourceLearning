@@ -6,6 +6,7 @@ public class TestDao {
     }
 
     public void test() {
-        System.out.println("222222222222222222223333333332");
+        System.out.println("3");
+        System.out.println(this.getClass().getClassLoader());
     }
 }

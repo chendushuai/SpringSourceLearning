@@ -77,7 +77,7 @@ public class MyClassLoader extends ClassLoader {
     }
 
     public static void main(String[] args) throws Exception{
-        String rootPath = MyClassLoader.class.getResource("/").getPath().replaceAll("%20"," ");
+        /*String rootPath = MyClassLoader.class.getResource("/").getPath().replaceAll("%20"," ");
         rootPath = new File(rootPath).getPath();
         while (true) {
             MyClassLoader myClassLoader = new MyClassLoader(rootPath,"",rootPath + "/com/chenss/dao");
@@ -87,6 +87,8 @@ public class MyClassLoader extends ClassLoader {
             new TestDao().test();
 
             Thread.sleep(2000);
-        }
+        }*/
+
+        MyApplication.run(MyClassLoader.class);
     }
 }
