@@ -17,33 +17,29 @@ import java.util.List;
  */
 public class SwapPairs {
     public static ListNode swapPairs(ListNode head) {
-        if (head.next == null) {
+        if (head==null || head.next == null) {
             return head;
         }
         ListNode result = head.next;
-        ListNode n = head;
-        n = swap(null, n);
-        while (n != null && n.next != null) {
-            n = swap(n, n.next);
+        ListNode p = head;
+        ListNode n = head.next;
+        ListNode prev = swap(p, n);
+        prev=prev.next;
+        while (true) {
+            if ((p = prev.next)== null || (n = p.next)== null) {
+                break;
+            }
+            prev.next=swap(p,n);
+            prev=prev.next.next;
         }
         return result;
     }
 
-    public static ListNode swap(ListNode head,ListNode h) {
-        ListNode p=h;
-        boolean isNull = false;
-        if (head==null) {
-            head=h.next;
-            isNull=true;
-        }
-        ListNode n = p.next;
+    public static ListNode swap(ListNode p,ListNode n) {
         ListNode temp = n.next;
         n.next = p;
         p.next = temp;
-        if (!isNull) {
-            head.next=n;
-        }
-        return p;
+        return n;
     }
 
     public static void main(String[] args) {
