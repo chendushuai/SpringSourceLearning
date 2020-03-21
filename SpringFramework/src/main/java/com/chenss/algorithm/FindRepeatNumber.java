@@ -24,12 +24,23 @@ public class FindRepeatNumber {
         if (nums.length==2&&nums[0]!=nums[1]) {
             return -1;
         }
-        BitSet bitSet = new BitSet(nums.length);
+        /*BitSet bitSet = new BitSet(nums.length);
         for (int i = 0; i < nums.length; i++) {
             if (bitSet.get(nums[i])) {
                 return nums[i];
             }
             bitSet.set(nums[i],true);
+        }*/
+        int temp;
+        for (int i = 0; i < nums.length; i++) {
+            while (nums[i]!=i) {
+                temp=nums[i];
+                if (nums[i]==nums[temp]) {
+                    return nums[i];
+                }
+                nums[i]=nums[temp];
+                nums[temp]=temp;
+            }
         }
         return -1;
     }
