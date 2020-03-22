@@ -1,0 +1,5 @@
+org.springframework.context.ApplicationContextInitializer = \
+  com.chenss.config.MyContextInitializer
+
+org.springframework.boot.SpringApplicationRunListener = \
+  com.chenss.config.MyRunListener
