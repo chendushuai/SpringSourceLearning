@@ -3,7 +3,9 @@ package com.chenss.algorithm;
 import com.google.gson.Gson;
 
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 57. 插入区间
@@ -32,38 +34,35 @@ public class Insert {
         if (newInterval.length != 2) {
             return intervals;
         }
-        int last = 0;
-        int[][] newResult = new int[intervals.length + 1][2];
-        boolean isMerge = false;
-        if (newInterval[0] <= intervals[0][0]) {
-            newResult[0] = newInterval;
-            isMerge = true;
-        } else {
-            newResult[0] = intervals[0];
-        }
-        for (int i = isMerge ? 0 : 1; i < intervals.length; i++) {
-            int[] nex = intervals[i];
-            if (!isMerge) {
-                if (newInterval[0] <= nex[0]) {
-                    isMerge = true;
-                    last = merge(newResult,newInterval,last);
-                }
+
+        List<int[]> newResult = new ArrayList<>();
+        int beginIndex = 0;
+        for (int i = 0; i < intervals.length; i++) {
+            int[] interval = intervals[i];
+            if (newInterval[1]<interval[0]) {
+                newResult.add(newInterval);
+                newInterval=null;
+                break;
             }
-            last = merge(newResult,nex,last);
+            if (newInterval[0]<=interval[1] && newInterval[1]>=interval[0]) {
+                newInterval[0]=Math.min(newInterval[0],interval[0]);
+                newInterval[1]=Math.max(newInterval[1],interval[1]);
+            } else {
+                newResult.add(interval);
+            }
+            beginIndex++;
         }
-        if (!isMerge) {
-            last = merge(newResult,newInterval,last);
+        if (newInterval!=null) {
+            newResult.add(newInterval);
         }
-        return Arrays.copyOf(newResult, last + 1);
+        copyArr(newResult,intervals,beginIndex);
+        return newResult.toArray(new int[0][]);
     }
 
-    public static int merge(int[][] newResult,int[] m,int last) {
-        if (m[0] <= newResult[last][1]) {
-            newResult[last][1] = Math.max(newResult[last][1], m[1]);
-        } else {
-            newResult[++last] = m;
+    public static void copyArr(List<int[]> newResult,int[][] intervals,int beginIndex) {
+        while (beginIndex<=intervals.length-1) {
+            newResult.add(intervals[beginIndex++]);
         }
-        return last;
     }
 
     public static void main(String[] args) {
@@ -72,5 +71,6 @@ public class Insert {
         System.out.println(gson.toJson(insert(new int[][]{{1,3},{7,9}},new int[]{4,6})));
         System.out.println(gson.toJson(insert(new int[][]{{1,3},{7,9}},new int[]{3,8})));
         System.out.println(gson.toJson(insert(new int[][]{{1,5}},new int[]{2,7})));
+        System.out.println(gson.toJson(insert(new int[][]{{1,5}},new int[]{0,0})));
     }
 }
