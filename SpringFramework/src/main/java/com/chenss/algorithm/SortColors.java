@@ -26,29 +26,49 @@ public class SortColors {
         if (nums.length<=1) {
             return;
         }
-        int red=0;
-        int white=0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i]==0) {
-                red++;
-            } else if (nums[i]==1) {
-                white++;
+        int left=0;
+        int right=nums.length-1;
+        int curr=left+1;
+        int temp;
+        while (curr <= right) {
+            if (nums[left]==0) {
+                curr = ++left +1;
+                continue;
             }
-        }
-        for (int i = 0; i < nums.length; i++) {
-            if (red-->0) {
-                nums[i]=0;
-            } else if (white-->0) {
-                nums[i]=1;
+            if (nums[right]==2) {
+                right--;
+                continue;
+            }
+            if (nums[left]==2) {
+                temp=nums[left];
+                nums[left]=nums[right];
+                nums[right--]=temp;
+                continue;
+            }
+            if (nums[right]==0) {
+                temp=nums[right];
+                nums[right]=nums[left];
+                nums[left++]=temp;
+                curr=left+1;
+                continue;
+            }
+            if (nums[curr]==0) {
+                temp=nums[curr];
+                nums[curr++]=nums[left];
+                nums[left++]=temp;
+            } else if (nums[curr]==2) {
+                temp=nums[curr];
+                nums[curr++]=nums[right];
+                nums[right--]=temp;
             } else {
-                nums[i]=2;
+                curr ++;
             }
         }
     }
 
     public static void main(String[] args) {
         Gson gson=new Gson();
-        int[] arr = {2, 0, 2, 1, 1, 0};
+        int[] arr = {1,2,2,2,2,0,0,0,1,1};
         sortColors(arr);
         System.out.println(gson.toJson(arr));
     }
